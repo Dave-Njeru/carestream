@@ -1,0 +1,13 @@
+# Enables the URL rewriting module in Apache. This tells Apache to start processing rewrite rules.
+RewriteEngine On
+# Specifies the base directory for relative rewrite rules. This means all rewrite rules will be relative to this directory
+RewriteBase /projects/carestream/public
+# A condition that checks if a request is not a file.
+RewriteCond %{REQUEST_FILENAME} !-f
+# A condition that checks if a request is not a directory.
+RewriteCond %{REQUEST_FILENAME} !-d
+# This is the actual rewrite rule. ^(.*)$ matches any URL path.Redirects all incoming requests to index.php
+# [QSA,L] are flags:
+# QSA (Query String Append): Preserves any existing query string parameters
+# L (Last): Stops processing any further rewrite rules after this one
+RewriteRule ^(.*)$ index.php [QSA,L]

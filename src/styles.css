@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fav-color {
+    @apply bg-gradient-to-r from-sky-600 to-lime-500 bg-clip-text text-transparent;
+}
+
+.fav-bg {
+    @apply bg-gradient-to-r from-sky-600 to-lime-500
+}
+
+.form-input {
+    @apply border-solid border-b-2 border-emerald-500 w-full my-3 focus:outline-none focus:border-amber-400;
+}
+
+.btn {
+    @apply border-solid border-2 py-2 px-3 rounded-full uppercase font-bold text-sm border-rose-500 text-rose-500;
+}
