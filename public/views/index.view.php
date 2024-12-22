@@ -13,11 +13,11 @@ require 'partials/head.php';
 
         <div class="basis-1/2"><!--navigation links-->
             <nav>
-                <ul class="flex justify-evenly divide-x-2">
-                    <li><a href="#">Home</a></li>
-                    <li class="pl-12"><a href="#">About</a></li>
-                    <li class="pl-12"><a href="#">Services</a></li>
-                    <li class="pl-12"><a href="#">Contact Us</a></li>
+                <ul class="flex justify-evenly">
+                    <li class="hover-nav-links"><a href="<?= BASE_URL ?>">Home</a></li>
+                    <li class="hover-nav-links"><a href="#">About</a></li>
+                    <li class="hover-nav-links"><a href="#">Services</a></li>
+                    <li class="hover-nav-links"><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,43 +27,47 @@ require 'partials/head.php';
                 <button class="mx-4 btn hover:text-white hover:bg-rose-500 transition ease-out duration-500">login</button>
             </a>
 
-            <button class="mx-4 btn hover:text-white hover:bg-rose-500 transition ease-out duration-500">sign up</button>
+            <a href="<?= BASE_URL ?>/register">
+                <button class="mx-4 btn hover:text-white hover:bg-rose-500 transition ease-out duration-500">sign up</button>
+            </a>
         </div>
     </div>
 
-    <div class="mt-3 relative"><!--banner-->
-        <img src="<?= BASE_URL ?>/views/img/img1.jpg" alt="patients banner" class="w-full">
-        <div class="absolute top-0 ml-8 mt-6">
-            <h1 class="text-white text-8xl font-bold">CareStream.</h1>
-            <h2 class="text-white text-5xl mt-3">Dedicated to Providing the Best Health Care</h2>
+    <main>
+        <div class="mt-3 relative"><!--banner-->
+            <img src="<?= BASE_URL ?>/views/img/img1.jpg" alt="patients banner" class="w-full">
+            <div class="absolute top-0 ml-8 mt-6">
+                <h1 class="text-white text-8xl font-bold">CareStream.</h1>
+                <h2 class="text-white text-5xl mt-3">Dedicated to Providing the Best Health Care</h2>
+            </div>
         </div>
-    </div>
 
-    <div class="mx-7 mt-4 pb-2 border-b-2 border-gray-300"><!--business-->
-        <h1 class="text-5xl text-gray-400">Providing You With Quality Health Care</h1>
-        <p class="mt-4">
-            Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird,
-            wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist,
-            dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und
-            somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren
-            nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach
-            "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen.
-            Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig,
-            andere bewusst beeinflusst von Witz und des eigenen Geschmack
-        </p>
-        <p class="mt-4">
-            Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird,
-            wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist,
-            dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und
-            somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren
-            nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach
-            "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen.
-            Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig,
-            andere bewusst beeinflusst von Witz und des eigenen Geschmack
-        </p>
-    </div>
+        <div class="mx-7 mt-4 pb-2 border-b-2 border-gray-300"><!--business-->
+            <h1 class="text-5xl text-gray-400">Providing You With Quality Health Care</h1>
+            <p class="mt-4">
+                Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird,
+                wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist,
+                dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und
+                somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren
+                nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach
+                "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen.
+                Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig,
+                andere bewusst beeinflusst von Witz und des eigenen Geschmack
+            </p>
+            <p class="mt-4">
+                Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird,
+                wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist,
+                dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und
+                somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren
+                nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach
+                "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen.
+                Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig,
+                andere bewusst beeinflusst von Witz und des eigenen Geschmack
+            </p>
+        </div>
+    </main>
 
-    <div class="mx-7 my-8 flex justify-evenly"><!--footer-->
+    <footer class="mx-7 my-8 flex justify-evenly"><!--footer-->
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 inline-block mr-3">
                 <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
@@ -84,5 +88,5 @@ require 'partials/head.php';
             </svg>
             <span><a href="#">More Info>></a></span>
         </div>
-    </div>
+    </footer>
 </div>
