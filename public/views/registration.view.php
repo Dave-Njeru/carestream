@@ -1,7 +1,6 @@
 <?php
 $header = 'Registration';
 
-require '../config.php';
 require 'partials/head.php';
 ?>
 
