@@ -694,12 +694,6 @@ video {
   justify-content: space-evenly;
 }
 
-.divide-x-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-divide-x-reverse: 0;
-  border-right-width: calc(2px * var(--tw-divide-x-reverse));
-  border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
-}
-
 .rounded-lg{
   border-radius: 0.5rem;
 }
@@ -752,10 +746,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pl-12{
-  padding-left: 3rem;
-}
-
 .text-center{
   text-align: center;
 }
@@ -805,6 +795,23 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-400{
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+}
+
+.underline{
+  text-decoration-line: underline;
+}
+
+.decoration-pink-500{
+  text-decoration-color: #ec4899;
+}
+
+.decoration-indigo-500{
+  text-decoration-color: #6366f1;
 }
 
 .transition{
@@ -873,6 +880,20 @@ video {
   line-height: 1.25rem;
   font-weight: 700;
   text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(244 63 94 / var(--tw-text-opacity, 1));
+}
+
+.hover-nav-links{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hover-nav-links:hover{
   --tw-text-opacity: 1;
   color: rgb(244 63 94 / var(--tw-text-opacity, 1));
 }
