@@ -7,26 +7,26 @@ require 'partials/head.php';
 <div class="md:container mx-auto px-4 flex items-center justify-center h-full"> <!--content wrapper-->
     <div class="bg-white w-1/2 p-4">
         <h2 class="text-center text-3xl fav-color font-bold">Registration Form</h2>
-        <form action="#">
+        <form action="" method="post">
             <div>
                 <!--First Name-->
-                <input type="text" name="" id="" class="form-input" placeholder="First Name">
+                <input type="text" name="" class="form-input" placeholder="First Name" pattern="[A-Za-z]{1,32}" title="Only alphabet letters are allowed" required>
             </div>
             <div>
                 <!--Last Name-->
-                <input type="text" name="" id="" class="form-input" placeholder="Last Name">
+                <input type="text" name="" class="form-input" placeholder="Last Name" pattern="[A-Za-z]{1,32}" title="Only alphabet letters are allowed" required>
             </div>
             <div>
                 <!--Email-->
-                <input type="text" name="" id="" class="form-input" placeholder="Email">
+                <input type="email" name="" id="email" class="form-input" placeholder="Email" required>
             </div>
             <div>
                 <!--Contact-->
-                <input type="text" name="" id="" class="form-input" placeholder="Contact">
+                <input type="number" name="" class="form-input" placeholder="Contact" pattern="^(?:254)[71]\d{8}$" title="Please enter a valid phone number" required>
             </div>
             <div>
                 <!--Password-->
-                <input type="password" name="" id="" class="form-input" placeholder="Password">
+                <input type="password" name="" class="form-input" placeholder="Password" >
             </div>
             <div class="text-center">
                 <button type="submit" class="border-solid border-2 my-3 p-3 rounded-lg fav-bg">
