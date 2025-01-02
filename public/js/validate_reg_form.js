@@ -1,20 +1,32 @@
-//validate email
-const emailInput = document.getElementById("email");
+document.querySelector("form").addEventListener("submit", function (event) {
+  let is_form_submitable = true;
 
-emailInput.addEventListener('blur', function() {
-    const pattern = /^[A-Za-z\d._+-]+@[A-za-z]+\.[A-Za-z]{2,}$/;
+  //validate email
+  const email_input = document.getElementById("email");
+  const email_pattern = /^[A-Za-z\d._+-]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
 
-    //check if the email format is valid
-    if(!pattern.test(emailInput.value)) {
-        emailInput.focus();
-        emailInput.setCustomValidity("Please enter a valid email address");
-        emailInput.reportValidity(); //immediately display the custom message
-    } else {
-        emailInput.setCustomValidity("");
-    }
+  if (!email_pattern.test(email_input.value)) {
+    is_form_submitable = false;
+    alert("Please enter a valid email address");
+    email_input.focus();
+  } else {
+    is_form_submitable = true;
+  }
+
+  //validate phone number
+  const phone_input = document.getElementById("contact");
+  const phone_pattern = /^(?:254)[71]\d{8}$/;
+
+  if (!phone_pattern.test(phone_input.value)) {
+    is_form_submitable = false;
+    alert("Please enter a valid phone number");
+    phone_input.focus();
+  } else {
+    is_form_submitable = true;
+  }
+
+  //check if form is submittable
+  if (!is_form_submitable) {
+    event.preventDefault();
+  }
 });
-
-//validate phone number
-
-
-

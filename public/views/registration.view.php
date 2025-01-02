@@ -18,11 +18,11 @@ require 'partials/head.php';
             </div>
             <div>
                 <!--Email-->
-                <input type="email" name="" id="email" class="form-input" placeholder="Email" required>
+                <input type="text" name="" id="email" class="form-input" placeholder="Email" required>
             </div>
             <div>
                 <!--Contact-->
-                <input type="number" name="" class="form-input" placeholder="Contact" pattern="^(?:254)[71]\d{8}$" title="Please enter a valid phone number" required>
+                <input type="tel" name="" class="form-input" placeholder="Contact" id="contact" required>
             </div>
             <div>
                 <!--Password-->
