@@ -26,7 +26,7 @@ require 'partials/head.php';
             </div>
             <div>
                 <!--Password-->
-                <input type="password" name="" class="form-input" placeholder="Password" >
+                <input type="password" name="" class="form-input" id="password" placeholder="Password" required>
             </div>
             <div class="text-center">
                 <button type="submit" class="border-solid border-2 my-3 p-3 rounded-lg fav-bg">
