@@ -1,5 +1,5 @@
 <?php
-
+//dump and die
 function dd($value)
 {
     echo '<pre>';
@@ -8,5 +8,17 @@ function dd($value)
 
     die();
 }
+//clean user input
+function test_input($data = "")
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
 
+    return $data;
+}
+//create an alert message
+function alert($message = "") {
+    echo ("<script>alert('" . addslashes($message) . "');</script>");
+}
 ?>

@@ -782,6 +782,11 @@ video {
   text-transform: uppercase;
 }
 
+.text-blue-400{
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+}
+
 .text-gray-400{
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity, 1));
@@ -797,21 +802,12 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.text-blue-400{
-  --tw-text-opacity: 1;
-  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
-}
-
 .underline{
   text-decoration-line: underline;
 }
 
 .decoration-pink-500{
   text-decoration-color: #ec4899;
-}
-
-.decoration-indigo-500{
-  text-decoration-color: #6366f1;
 }
 
 .transition{
