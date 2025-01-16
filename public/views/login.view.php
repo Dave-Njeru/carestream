@@ -3,6 +3,9 @@ $header = 'Login';
 
 require 'partials/head.php';
 
+if(isset($_GET['redirect'])) {
+    alert("Email verification successful. You can proceed to login.");
+}
 ?>
 
 <div class="md:container mx-auto px-4 flex items-center justify-center h-full"> <!--content wrapper-->

@@ -8,6 +8,7 @@ $header = 'Registration';
 require 'partials/head.php';
 require 'connection.php';
 require '../vendor/autoload.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $last_name = $email = $contact = $hashed_password = $password = "";
     $first_name = test_input($_POST['first_name']);
@@ -42,16 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mail->setFrom('davenjeru9@gmail.com', 'Carestream');
                 $mail->addAddress($email);
                 // Content
-                $verification_link = "https://127.0.0.1/projects/carestream/public/verify.php?token=" . $verification_token;
+                $verification_link = "https://127.0.0.1/projects/carestream/public/verify?token=" . $verification_token;
                 $mail->isHTML(true);
                 $mail->Subject = 'Email verification';
                 $mail->Body = 'Click the link to verify your email: ' . $verification_link;
                 if ($mail->send()) {
                     alert("A verification email has been sent to your email address.");
-                } 
-            } 
+                }
+            }
             $stmt->close();
-        } 
+        }
         $conn->close();
     } catch (Exception $e) {
         alert("Error: " . $e->getMessage());
