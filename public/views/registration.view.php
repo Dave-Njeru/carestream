@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<div class="md:container mx-auto px-4 flex items-center justify-center h-full"> <!--content wrapper-->
+<div class="md:container mx-auto flex items-center justify-center h-full"> <!--content wrapper-->
     <div class="bg-white w-1/2 p-4">
         <h2 class="text-center text-3xl fav-color font-bold">Registration Form</h2>
         <form action="/projects/carestream/public/register" method="POST">

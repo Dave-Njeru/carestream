@@ -5,7 +5,7 @@ require 'partials/head.php';
 
 ?>
 
-<div class="md:container mx-auto px-4 mt-4"><!--content wrapper-->
+<div class="md:container mx-auto mt-4"><!--content wrapper-->
     <div class="flex justify-between items-center">
         <div><!--header-->
             <h2 class="uppercase text-3xl font-bold fav-color">carestream</h2>
