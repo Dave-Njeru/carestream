@@ -37,6 +37,9 @@ if (isset($_GET['token'])) {
     $conn->close();
 }
 ?>
-<div class="md:container mx-auto px-4 flex items-center justify-center h-full">
-    <p>Verifying email. Please wait...</p>
-</div>
+
+<body class="text-gray-600 bg-gray-100 font-poppins">
+    <div class="md:container mx-auto px-4 flex items-center justify-center h-full">
+        <p>Verifying email. Please wait...</p>
+    </div>
+</body>
