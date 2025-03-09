@@ -1,54 +1,102 @@
 <?php
-$header = 'Admin Panel';
+$header = "Admin page";
 
-require 'partials/head.php'
+require 'partials/head.php';
 ?>
 
-<div class="md:container mx-auto mt-3 px-4 grid grid-rows-6"> <!--content wrapper-->
-    <div class="row-span-1">
-        <div class="flex">
-            <div class="basis-1/4">
-                <p class="uppercase">carestream</p>
-            </div>
-            <div class="">
-                <input type="text">
-            </div>
-            <div class="">
-
-            </div>
+<body class="text-gray-600 bg-gray-100 font-poppins" id="home">
+    <div class="lg:container mx-auto py-3"><!--content wrapper-->
+        <div class="py-4 text-white bg-slate-500 sticky top-0"><!--header-->
+            <header class="flex items-center justify-between pl-2">
+                <div>
+                    <a href="#home"><h2 class="font-bold uppercase hover:cursor-pointer">Carestream</h2></a>
+                </div>
+                <div>
+                    <i class="fa fa-cog " aria-hidden="true"></i>
+                    <i class="fa fa-power-off px-3" aria-hidden="true"></i>
+                </div>
+            </header>
         </div>
-    </div>
 
-    <div class="row-span-5">
-        <div class="grid grid-cols-6">
-            <div class="col-span-1"><!--sidebar-->
+        <div class="grid lg:grid-cols-6 mt-3 h-full gap-4"> <!--main-->
+            <div class="lg:col-span-1 bg-slate-400 text-white"><!--sidebar-->
                 <nav>
                     <ul>
-                        <li class="flex justify-between">
-                            <span>Doctor</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 ml-2">
-                                <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
-                            </svg>
+                        <li class="py-3 pl-2 bg-green-400">
+                            <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
                         </li>
-                        <li class="flex justify-between">
-                            <span>Nurse</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 ml-2">
-                                <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
-                            </svg>
+                        <hr>
+                        <li class="py-3 pl-2 hover-admin-nav-links">
+                            <i class="fa fa-user-md" aria-hidden="true"></i> Doctors
                         </li>
-                        <li class="flex">
-                            <span>Patient</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 ml-2">
-                                <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
-                            </svg>
+                        <hr>
+                        <li class="py-3 pl-2 hover-admin-nav-links">
+                            <i class="fa fa-wheelchair" aria-hidden="true"></i> Patients
                         </li>
+                        <hr>
+                        <li class="py-3 pl-2 hover-admin-nav-links">
+                            <i class="fa fa-line-chart" aria-hidden="true"></i> Reports
+                        </li>
+                        <hr>
                     </ul>
                 </nav>
             </div>
-            <div class="col-span-2"><!--main content-->
 
+            <div class="lg:col-span-5"><!--population-->
+                <div class="grid lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 text-center"> <!--patients-->
+                        <i class="fa fa-users text-green-500" aria-hidden="true"></i>
+                        <p>Total Patients: <span>34</span></p>
+                    </div>
+                    <div class="bg-white p-4 text-center"><!--doctors-->
+                        <i class="fa fa-user-md text-red-500" aria-hidden="true"></i>
+                        <p>Total Doctors: <span>34</span></p>
+                    </div>
+                    <div class="bg-white p-4 text-center"><!--staff-->
+                        <i class="fa fa-users text-yellow-500" aria-hidden="true"></i>
+                        <p>Total Staff: <span>34</span></p>
+                    </div>
+                    <div class="bg-white p-4 text-center"><!--appointments-->
+                        <i class="fa fa-calendar text-sky-500" aria-hidden="true"></i>
+                        <p>Total Appointments: <span>34</span></p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-4 mt-4"><!--view appointments-->
+                    <div class="lg:col-span-3 bg-white p-3 text-sm">
+                        <h2 class="font-bold">Appointments</h2>
+                        <?php
+                        //sample data
+                        $entries =  [
+                            ["Kenza Team", "Regular visit to kana forest", "2018-02-01", "Barn-kenya"],
+                            ["Tsaro team building", "Team building activities", "2018-02-01", "Black-wings"],
+                            ["Masa team building", "Game reserve for team building", "2018-02-01", "Barn-kenya"]
+                        ]
+                        ?>
+                        <table id="entriesTable" class="display text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Program name</th>
+                                    <th>Description</th>
+                                    <th>Start date</th>
+                                    <th>Coordinator</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($entries as $entry) : ?>
+                                    <tr>
+                                        <td><?= $entry[0]; ?></td>
+                                        <td><?= $entry[1]; ?></td>
+                                        <td><?= $entry[2]; ?></td>
+                                        <td><?= $entry[3]; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-</div>
+    <script src="<?= BASE_URL ?>/js/appointments.js" defer></script>
+</body>

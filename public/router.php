@@ -7,6 +7,7 @@ $routes = [
     '/projects/carestream/public/login' => 'controllers/login.php',
     '/projects/carestream/public/register' => 'controllers/register.php',
     '/projects/carestream/public/verify' => 'controllers/verify.php',
+    '/projects/carestream/public/admin' => 'controllers/admin.php',
 ];
 
 function routeToController($url, $routes)

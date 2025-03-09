@@ -23,3 +23,7 @@
 .hover-nav-links {
     @apply hover:text-rose-500 transition ease-out duration-300;
 }
+
+.hover-admin-nav-links {
+    @apply hover:bg-orange-400 transition ease-out duration-300 hover:cursor-pointer;
+}
