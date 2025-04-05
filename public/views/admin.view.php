@@ -1,47 +1,18 @@
 <?php
 $header = "Admin page";
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 ?>
 
 <body class="text-gray-600 bg-gray-100 font-poppins" id="home">
     <div class="lg:container mx-auto py-3"><!--content wrapper-->
-        <div class="py-4 text-white bg-slate-500 sticky top-0"><!--header-->
-            <header class="flex items-center justify-between pl-2">
-                <div>
-                    <a href="#home"><h2 class="font-bold uppercase hover:cursor-pointer">Carestream</h2></a>
-                </div>
-                <div>
-                    <i class="fa fa-cog " aria-hidden="true"></i>
-                    <i class="fa fa-power-off px-3" aria-hidden="true"></i>
-                </div>
-            </header>
-        </div>
+        <!-- include header -->
+        <?php require 'partials/admin/header.php' ?>
 
         <div class="grid lg:grid-cols-6 mt-3 h-full gap-4"> <!--main-->
-            <div class="lg:col-span-1 bg-slate-400 text-white"><!--sidebar-->
-                <nav>
-                    <ul>
-                        <li class="py-3 pl-2 bg-green-400">
-                            <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
-                        </li>
-                        <hr>
-                        <li class="py-3 pl-2 hover-admin-nav-links">
-                            <i class="fa fa-user-md" aria-hidden="true"></i> Doctors
-                        </li>
-                        <hr>
-                        <li class="py-3 pl-2 hover-admin-nav-links">
-                            <i class="fa fa-wheelchair" aria-hidden="true"></i> Patients
-                        </li>
-                        <hr>
-                        <li class="py-3 pl-2 hover-admin-nav-links">
-                            <i class="fa fa-line-chart" aria-hidden="true"></i> Reports
-                        </li>
-                        <hr>
-                    </ul>
-                </nav>
-            </div>
-
+            <!--include sidebar -->
+            <?php require 'partials/admin/sidebar.php' ?>
+            
             <div class="lg:col-span-5"><!--population-->
                 <div class="grid lg:grid-cols-4 gap-4">
                     <div class="bg-white p-4 text-center"> <!--patients-->

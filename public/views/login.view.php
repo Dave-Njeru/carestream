@@ -1,7 +1,7 @@
 <?php
 $header = 'Login';
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 require 'connection.php';
 
 if (isset($_GET['redirect'])) {

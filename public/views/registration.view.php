@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $header = 'Registration';
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 require 'connection.php';
 require '../vendor/autoload.php';
 
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
                 // Recipients 
-                $mail->setFrom('davenjeru9@gmail.com', 'Carestream');
+                $mail->setFrom($_ENV['USERNAME'], 'Carestream');
                 $mail->addAddress($email);
                 // Content
                 $verification_link = "https://127.0.0.1/projects/carestream/public/verify?token=" . $verification_token;

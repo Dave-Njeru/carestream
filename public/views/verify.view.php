@@ -1,7 +1,7 @@
 <?php
 $header = "Verify email";
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 require 'connection.php';
 
 if (isset($_GET['token'])) {

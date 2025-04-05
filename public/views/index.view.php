@@ -1,7 +1,7 @@
 <?php
 $header = "Home";
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 
 ?>
 
