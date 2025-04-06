@@ -1,5 +1,6 @@
 <?php
 $header = "Admin page";
+$view = 'dashboard';
 
 require 'partials/general/head.php';
 ?>
@@ -12,7 +13,7 @@ require 'partials/general/head.php';
         <div class="grid lg:grid-cols-6 mt-3 h-full gap-4"> <!--main-->
             <!--include sidebar -->
             <?php require 'partials/admin/sidebar.php' ?>
-            
+
             <div class="lg:col-span-5"><!--population-->
                 <div class="grid lg:grid-cols-4 gap-4">
                     <div class="bg-white p-4 text-center"> <!--patients-->
