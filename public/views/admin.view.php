@@ -45,7 +45,7 @@ require 'partials/general/head.php';
                             ["Masa team building", "Game reserve for team building", "2018-02-01", "Barn-kenya"]
                         ]
                         ?>
-                        <table id="entriesTable" class="display text-sm">
+                        <table id="appointments_table" class="display text-sm">
                             <thead>
                                 <tr>
                                     <th>Program name</th>
@@ -70,5 +70,5 @@ require 'partials/general/head.php';
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>/js/appointments.js" defer></script>
+    <script src="<?= BASE_URL ?>/js/appointments_table.js" defer></script>
 </body>

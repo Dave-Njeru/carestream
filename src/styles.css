@@ -27,3 +27,7 @@
 .hover-admin-nav-links {
     @apply hover:bg-orange-400 transition ease-out duration-300 hover:cursor-pointer;
 }
+
+.admin_mini_navbar {
+    @apply hover:bg-rose-100 hover:shadow-sm transition ease-out duration-300;
+}
