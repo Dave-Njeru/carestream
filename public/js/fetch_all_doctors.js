@@ -1,0 +1,18 @@
+$(document).ready(function () {
+  $("#view_all_doctors").click(function () {
+    fetch("../views/partials/admin/view_all_doctors.php").then(
+      (response) => {
+        return response.text();
+      }
+    )
+    .then((data) => {
+        $('#update_content').html(data);
+        $('#view_doctors_table').DataTable({
+          //add more functionalities here
+        });
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+  });
+});
