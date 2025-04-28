@@ -28,3 +28,4 @@
         </div>
     </form>
 </div>
+<script src="/projects/carestream/public/js/validate_reg_form.js" defer></script>
