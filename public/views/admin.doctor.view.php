@@ -2,10 +2,10 @@
 $header = "Admin page";
 $view = 'doctors';
 
-require 'partials/general/head.php';
-require 'connection.php';
+require_once 'partials/general/head.php';
+require_once 'connection.php';
 
-//get values from form and register doctor
+// Get values from form and register doctor
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $last_name = $email = $contact = $hashed_password = $password = "";
     $first_name = test_input($_POST['first_name']);

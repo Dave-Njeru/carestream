@@ -1,28 +1,49 @@
 <div>
     <?php
-    //sample data
-    $entries =  [
-        ["Kenza Team", "Regular visit to kana forest", "2018-02-01", "Barn-kenya"],
-        ["Tsaro team building", "Team building activities", "2018-02-01", "Black-wings"],
-        ["Masa team building", "Game reserve for team building", "2018-02-01", "Barn-kenya"]
-    ]
+    require_once 'C:/xampp/htdocs/projects/carestream/public/connection.php';
+
+    // Fetch data
+    try {
+        $entries = [];
+        $sql = "select id, first_name, last_name, email, contact
+        from doctors";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $results = $stmt->get_result();
+
+        while ($row = $results->fetch_assoc()) {
+            $entries[] = $row;
+        }
+
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        echo ('Error: ' . $e->getMessage());
+        $entries = [];
+    }
     ?>
+
+    <!-- Display data in a table -->
     <table id="view_doctors_table" class="display text-sm">
         <thead>
             <tr>
-                <th>Program name</th>
-                <th>Description</th>
-                <th>Start date</th>
-                <th>Coordinator</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Contact</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($entries as $entry) : ?>
                 <tr>
-                    <td><?= $entry[0]; ?></td>
-                    <td><?= $entry[1]; ?></td>
-                    <td><?= $entry[2]; ?></td>
-                    <td><?= $entry[3]; ?></td>
+                    <td><?= htmlspecialchars($entry['id']); ?></td>
+                    <td><?= htmlspecialchars($entry['first_name']); ?></td>
+                    <td><?= htmlspecialchars($entry['last_name']); ?></td>
+                    <td><?= htmlspecialchars($entry['email']); ?></td>
+                    <td><?= htmlspecialchars($entry['contact']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
