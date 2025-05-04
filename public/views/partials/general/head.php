@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $header ?> </title>
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/styles.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/output.css">
     <!--fontawesome-->
     <script src="https://kit.fontawesome.com/d0bdada029.js" crossorigin="anonymous"></script> 
     <!--jquery-->
