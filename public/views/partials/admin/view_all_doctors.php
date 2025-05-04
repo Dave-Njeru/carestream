@@ -34,6 +34,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Contact</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,8 +45,13 @@
                     <td><?= htmlspecialchars($entry['last_name']); ?></td>
                     <td><?= htmlspecialchars($entry['email']); ?></td>
                     <td><?= htmlspecialchars($entry['contact']); ?></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm font-normal normal-case">Edit</button>
+                        <button class="btn btn-error btn-sm font-normal normal-case delete_btn" data-id = "<?= $entry['id'] ?>">Delete</button>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<script src="/projects/carestream/public/js/app.js" defer></script>

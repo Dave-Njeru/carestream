@@ -12,6 +12,8 @@
     <!--datatables plugins -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js" defer></script>
+    <!--sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 </html>
