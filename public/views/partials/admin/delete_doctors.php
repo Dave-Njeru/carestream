@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo json_encode(["success" => false, "error" => "Deletion failed"]);
         }
+
+        $stmt->close();
+        $conn->close();
     } else {
         echo json_encode(["success" => false, "error" => "ID not provided"]);
     }
