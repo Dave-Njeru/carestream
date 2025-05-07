@@ -83,6 +83,7 @@ document.getElementById('update_doctor_form').addEventListener('submit', functio
 
     const modal = document.getElementById("update_modal");
     const form_data = new FormData(this);
+    const id = form_data.get('id');
 
     fetch('../views/partials/admin/update_doctor.php', {
         method: 'POST',
@@ -97,6 +98,15 @@ document.getElementById('update_doctor_form').addEventListener('submit', functio
 
         if(result.success) {
             Swal.fire("Updated!", "Data has been updated", "success");
+
+            // Find the row by data-id
+            const row = document.querySelector(`tr[data-id="${id}"]`); // JS Template literals
+            if (row) {
+                row.querySelector('.first-name').textContent = form_data.get('first_name');
+                row.querySelector('.last-name').textContent = form_data.get('last_name');
+                row.querySelector('.email').textContent = form_data.get('email');
+                row.querySelector('.contact').textContent = form_data.get('contact');
+            } 
         } else {
             Swal.fire("Error!", result.error, "error");
         }

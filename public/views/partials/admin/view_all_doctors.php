@@ -39,15 +39,15 @@ try {
         </thead>
         <tbody>
             <?php foreach ($entries as $entry) : ?>
-                <tr>
+                <tr data-id="<?= htmlspecialchars($entry['id']) ?>"> <!-- Used to update row data upon form submission-->
                     <td><?= htmlspecialchars($entry['id']); ?></td>
-                    <td><?= htmlspecialchars($entry['first_name']); ?></td>
-                    <td><?= htmlspecialchars($entry['last_name']); ?></td>
-                    <td><?= htmlspecialchars($entry['email']); ?></td>
-                    <td><?= htmlspecialchars($entry['contact']); ?></td>
+                    <td class="first-name"><?= htmlspecialchars($entry['first_name']); ?></td>
+                    <td class="last-name"><?= htmlspecialchars($entry['last_name']); ?></td>
+                    <td class="email"><?= htmlspecialchars($entry['email']); ?></td>
+                    <td class="contact"><?= htmlspecialchars($entry['contact']); ?></td>
                     <td>
-                        <button class="btn btn-primary btn-sm font-normal normal-case edit_btn" data-id="<?= $entry['id'] ?>">Edit</button>
-                        <button class="btn btn-error btn-sm font-normal normal-case delete_btn" data-id="<?= $entry['id'] ?>">Delete</button>
+                        <button class="btn btn-primary btn-sm font-normal normal-case edit_btn" data-id="<?= htmlspecialchars($entry['id']) ?>">Edit</button>
+                        <button class="btn btn-error btn-sm font-normal normal-case delete_btn" data-id="<?= htmlspecialchars($entry['id']) ?>">Delete</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
