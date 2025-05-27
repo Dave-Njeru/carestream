@@ -5,9 +5,9 @@ require 'partials/general/head.php';
 
 ?>
 
-<body class="text-gray-600 bg-gray-100 font-poppins">
+<body class="text-gray-600 bg-gray-100">
     <div class="md:container mx-auto mt-4"><!--content wrapper-->
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center py-3">
             <div><!--header-->
                 <h2 class="uppercase text-3xl font-bold fav-color">carestream</h2>
             </div>
@@ -25,11 +25,11 @@ require 'partials/general/head.php';
 
             <div><!--buttons-->
                 <a href='<?= BASE_URL ?>/login'>
-                    <button class="mx-4 btn hover:text-white hover:bg-rose-500 transition ease-out duration-500">login</button>
+                    <button class="mx-4 btns hover:text-white hover:bg-rose-500 transition ease-out duration-500">login</button>
                 </a>
 
                 <a href="<?= BASE_URL ?>/register">
-                    <button class="mx-4 btn hover:text-white hover:bg-rose-500 transition ease-out duration-500">sign up</button>
+                    <button class="mx-4 btns hover:text-white hover:bg-rose-500 transition ease-out duration-500">sign up</button>
                 </a>
             </div>
         </div>

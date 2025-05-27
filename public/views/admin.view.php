@@ -5,7 +5,7 @@ $view = 'dashboard';
 require 'partials/general/head.php';
 ?>
 
-<body class="text-gray-600 bg-gray-100 font-poppins" id="home">
+<body class="text-gray-600 bg-gray-100" id="home">
     <div class="lg:container mx-auto py-3"><!--content wrapper-->
         <!-- include header -->
         <?php require 'partials/admin/header.php' ?>
