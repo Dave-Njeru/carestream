@@ -1,7 +1,7 @@
 <?php
 $header = 'Page not found';
 
-require 'partials/head.php';
+require 'partials/general/head.php';
 ?>
 
 <div class="md:container mx-auto mt-3 px-4">
