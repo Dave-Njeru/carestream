@@ -63,7 +63,7 @@ try {
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
             <h3 class="text-lg font-bold pb-2">Edit Doctor</h3>
-            <form id="update_doctor_form" class="flex flex-col gap-4 max-w-md">
+            <form id="update-doctor-form" class="flex flex-col gap-4 max-w-md">
                 <input type="hidden" name="id" id="id">
                 <div class="flex gap-4">
                     <label for="first_name" class="w-32 text-right">First Name:</label>
