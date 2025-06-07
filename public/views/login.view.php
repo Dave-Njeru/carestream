@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $row = $result->fetch_assoc();
                 //check password against stored hash
                 if (password_verify($password, $row['password']) && $username === $row['email']) {
-                    alert("Valid credentials");
+                    $url = "/projects/carestream/public/2FA";
+                    header('Location: ' . $url);
                 } else {
                     alert("Invalid credentials");
                 }
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <body class="text-gray-600 bg-gray-100 font-poppins">
-    <div class="md:container mx-auto flex items-center justify-center h-full"> <!--content wrapper-->
+    <div class="md:container mx-auto flex items-center justify-center min-h-screen"> <!--content wrapper-->
         <div class="bg-white w-1/2 p-16">
             <h2 class="text-center text-3xl fav-color font-bold">Welcome Back!</h2>
             <form action="/projects/carestream/public/login" method="POST">

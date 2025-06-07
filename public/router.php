@@ -9,7 +9,8 @@ $routes = [
     '/projects/carestream/public/verify' => 'controllers/verify.php',
     '/projects/carestream/public/admin' => 'controllers/admin.php',
     '/projects/carestream/public/admin/doctor' => 'controllers/admin_doctor.php',
-    '/projects/carestream/public/patient' => 'controllers/patient.php',''
+    '/projects/carestream/public/patient' => 'controllers/patient.php', //patient index page
+    '/projects/carestream/public/2FA' => 'controllers/2fa.php' //enable 2fa after login
 ];
 
 function routeToController($url, $routes)
