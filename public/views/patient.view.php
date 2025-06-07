@@ -1,34 +1,19 @@
 <?php
-$header = "Patient page";
+$header = "Patient Dashboard";
 
 require 'partials/general/head.php';
 ?>
 
 <body class="bg-gray-100">
     <div class="min-h-screen flex">
-        <!--sidebar-->
-        <aside class="w-64 bg-white shadow-md hidden md:block">
-            <div class="p-6">
-                <h2 class="text-2xl font-semibold text-blue-600">CareStream</h2>
-            </div>
-            <nav class="mt-8">
-                <a href="#" class="block px-6 py-3 text-gray-700 font-bold hover:bg-blue-50">Dashboard</a>
-                <a href="#" class="block px-6 py-3 text-gray-700 hover:bg-blue-50">Appointments</a>
-                <a href="#" class="block px-6 py-3 text-gray-700 hover:bg-blue-50">Medical Records</a>
-                <a href="#" class="block px-6 py-3 text-gray-700 hover:bg-blue-50">Prescriptions</a>
-                <a href="#" class="block px-6 py-3 text-gray-700 hover:bg-blue-50">Profile</a>
-            </nav>
-        </aside>
-        <!--Main content-->
+        <!-- Import sidebar php page -->
+        <?php require 'partials/patient/sidebar.php'; ?>
+        
+        <!-- Main content -->
         <div class="flex-1 flex flex-col">
-            <!--Header-->
-            <header class="bg-wite shadow px-6 py-4 flex items-center justify-between">
-                <div>
-                    <h1 class="text-xl font-bold text-gray-800">Welcome, Jane Doe</h1>
-                    <p class="text-gray-500 text-sm">Patient ID: 1234567</p>
-                </div>
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Patient" class="w-12 h-12 rounded-full border-2 border-blue-500">
-            </header>
+            <!-- Import header php page -->
+             <?php require 'partials/patient/header.php'; ?>
+
             <!-- Dashboard Grid -->
             <main class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Upcoming Appointment -->
