@@ -19,12 +19,12 @@ require 'partials/general/head.php';
             <main>
                 <!-- Booking form -->
                 <section class="bg-white rounded-xl shadow-lg p-8 max-w-2xl">
-                    <h1  class="text-2xl font-bold text-blue-600 mb-4">Book an Appoinment</h1>
-                    <form class="space-y-4">
+                    <h1 class="text-2xl font-bold text-blue-600 mb-4">Book an Appoinment</h1>
+                    <form class="space-y-4" id="patientAppointmentForm">
                         <!-- Doctor Selection -->
                         <div>
                             <label for="doctor" class="block text-sm font-medium text-gray-700 mb-1">Select Doctor</label>
-                            <select id="doctor" name="doctor" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                            <select id="doctor" name="doctor" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
                                 <option value="">-- Select Doctor --</option>
                                 <option value="">Dr. Smith (Cardiologist)</option>
                                 <option value="">Dr. Lee (General Practitioner) </option>
@@ -34,17 +34,17 @@ require 'partials/general/head.php';
                         <!-- Date -->
                         <div>
                             <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
-                            <input type="date" id="date" name="date" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                            <input type="date" id="date" name="date" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" min="" required>
                         </div>
                         <!-- Time -->
                         <div>
                             <label for="time" class="block text-sm font-medium text-gray-700 mb-1">Time</label>
-                            <input type="time" id="time" name="time" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                            <input type="time" id="time" name="time" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" min="" required>
                         </div>
                         <!-- Reason -->
                         <div>
                             <label for="reason" class="block text-sm font-medium text-gray-700 mb-1">Reason</label>
-                            <textarea id="reason" name="reason" rows="3" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"></textarea>
+                            <textarea id="reason" name="reason" rows="3" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required></textarea>
                         </div>
                         <!-- Submit Button -->
                         <div>
@@ -55,4 +55,40 @@ require 'partials/general/head.php';
             </main>
         </div>
     </div>
+    <!-- Validate date and time-->
+    <script defer>
+        const now = new Date()
+
+        const dateToday = now.toISOString().split('T')[0] // get current date
+        document.getElementById('date').setAttribute('min', dateToday)
+
+        document.getElementById('patientAppointmentForm').addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const dateSelected = document.getElementById('date').value
+            const timeSelected = document.getElementById('time').value
+
+            const hours = String(now.getHours()).padStart(2, '0')
+            const minutes = String(now.getMinutes()).padStart(2, '0')
+            const currentTime = `${hours}:${minutes}`
+
+            // if user bypasses minimum setAttribute, check date
+            if (dateSelected < dateToday) {
+                alert('Please select a date from today onwards')
+                return
+            }
+
+            //If date is today, then check if time is valid
+            if (dateSelected === dateToday) {
+                if (timeSelected < currentTime) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Please select a time later than current time!",
+                    });
+                    return
+                }
+            }
+        })
+    </script>
 </body>
