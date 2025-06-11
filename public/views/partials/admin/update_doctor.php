@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssi", $first_name, $last_name, $email, $contact, $id);
     $stmt->execute();
 
-    if($stmt->affected_rows > 0) {
+    if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true]);
     } else {
         echo json_encode(["success" => false, "error" => "No changes made or an error occurred"]);

@@ -62,7 +62,7 @@ require 'partials/general/head.php';
         const dateToday = now.toISOString().split('T')[0] // get current date
         document.getElementById('date').setAttribute('min', dateToday)
 
-        document.getElementById('patientAppointmentForm').addEventListener('submit', (e) => {
+        document.getElementById('patientAppointmentForm').addEventListener('submit', function (e) {
             e.preventDefault()
 
             const dateSelected = document.getElementById('date').value
@@ -81,14 +81,31 @@ require 'partials/general/head.php';
             //If date is today, then check if time is valid
             if (dateSelected === dateToday) {
                 if (timeSelected < currentTime) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Please select a time later than current time!",
-                    });
+                    Swal.fire("Oops...", "Please select a time later than current time!", "error");
                     return
                 }
             }
+
+            // HTTTP request to record new appointment
+            const form_data = new FormData(this);
+
+            fetch('<?= BASE_URL ?>/views/partials/patient/appointments.php', {
+                    method: 'POST',
+                    body: form_data
+                })
+                .then((response) => {
+                    return response.json()
+                })
+                .then((result) => {
+                    if (result.success) {
+                        Swal.fire("Operation successful!", "Your appointment has been successfully saved", "success");
+                    } else {
+                        Swal.fire("Error!", result.error, "error"); // Error from server
+                    }
+                })
+                .catch((err) => {
+                    Swal.fire("Error!", "Could not fetch data: " + err, "error"); // Error from fetch request
+                })
         })
     </script>
 </body>
