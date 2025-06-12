@@ -1,7 +1,20 @@
 <?php
 $header = "Patient Appointments";
 
-require 'partials/general/head.php';
+require_once 'partials/general/head.php';
+require_once 'C:\xampp\htdocs\projects\carestream\public\connection.php';
+
+try {
+    // Query data
+    $sql = "SELECT * FROM appointments";
+
+    $stmt = $conn->query($sql); // To be used later in the code
+} catch (Exception $e) {
+    echo "Error: " . htmlspecialchars($e->getMessage());
+} finally {
+    // Close database connection
+    $conn->close();
+}
 ?>
 
 <body class="bg-gray-100">
@@ -20,15 +33,15 @@ require 'partials/general/head.php';
                 <!-- Booking form -->
                 <section class="bg-white rounded-xl shadow-lg p-8 max-w-2xl">
                     <h1 class="text-2xl font-bold text-blue-600 mb-4">Book an Appoinment</h1>
-                    <form class="space-y-4" id="patientAppointmentForm">
+                    <form class="space-y-4" id="patientAppointmentForm" method="POST">
                         <!-- Doctor Selection -->
                         <div>
                             <label for="doctor" class="block text-sm font-medium text-gray-700 mb-1">Select Doctor</label>
                             <select id="doctor" name="doctor" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
                                 <option value="">-- Select Doctor --</option>
-                                <option value="">Dr. Smith (Cardiologist)</option>
-                                <option value="">Dr. Lee (General Practitioner) </option>
-                                <option value="">Dr. Kimani (Dermatologist)</option>
+                                <option value="Dr. Smith">Dr. Smith (Cardiologist)</option>
+                                <option value="Dr. Lee">Dr. Lee (General Practitioner) </option>
+                                <option value="Dr. Kimani">Dr. Kimani (Dermatologist)</option>
                             </select>
                         </div>
                         <!-- Date -->
@@ -52,17 +65,51 @@ require 'partials/general/head.php';
                         </div>
                     </form>
                 </section>
+                <!-- Display all appointments -->
+                <section class="bg-white rounded-xl shadow-lg p-8 mt-3">
+                    <h2 class="text-xl font-bold text-blue-600 mb-2">Previous Appointments</h2>
+                    <table id="appointments" class="display text-sm">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Doctor</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($stmt->num_rows > 0) {
+                                // Output data of each row
+                                while ($row = $stmt->fetch_assoc()) {
+                                    echo "<tr>
+                                            <td>{$row['appointment_date']}</td>
+                                            <td>{$row['appointment_time']}</td>
+                                            <td>{$row['doctor']}</td>
+                                            <td>{$row['reason']}</td>
+                                            <td>{$row['appointment_status']}</td>
+                                        </tr>";
+                                }
+                            } else {
+                                // Datatable plugin handles this part
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </section>
             </main>
         </div>
     </div>
-    <!-- Validate date and time-->
+
     <script defer>
+        // Validate date and time
         const now = new Date()
 
         const dateToday = now.toISOString().split('T')[0] // get current date
         document.getElementById('date').setAttribute('min', dateToday)
 
-        document.getElementById('patientAppointmentForm').addEventListener('submit', function (e) {
+        document.getElementById('patientAppointmentForm').addEventListener('submit', function(e) {
             e.preventDefault()
 
             const dateSelected = document.getElementById('date').value
@@ -86,7 +133,7 @@ require 'partials/general/head.php';
                 }
             }
 
-            // HTTTP request to record new appointment
+            // AJAX request to submit form
             const form_data = new FormData(this);
 
             fetch('<?= BASE_URL ?>/views/partials/patient/appointments.php', {
@@ -98,7 +145,13 @@ require 'partials/general/head.php';
                 })
                 .then((result) => {
                     if (result.success) {
-                        Swal.fire("Operation successful!", "Your appointment has been successfully saved", "success");
+                        Swal.fire({
+                            title: "Operation successful!",
+                            text: "Your appointment has been successfully saved",
+                            icon: "success",
+                        }).then(() => {
+                            location.reload(); // Reload the page to clear form
+                        })
                     } else {
                         Swal.fire("Error!", result.error, "error"); // Error from server
                     }
@@ -107,5 +160,11 @@ require 'partials/general/head.php';
                     Swal.fire("Error!", "Could not fetch data: " + err, "error"); // Error from fetch request
                 })
         })
+
+        // Datatable plugin for appointments table
+        $(document).ready(function() {
+            //admin dashboard
+            $('#appointments').DataTable({});
+        });
     </script>
 </body>
