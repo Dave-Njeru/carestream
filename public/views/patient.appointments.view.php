@@ -71,11 +71,12 @@ try {
                     <table id="appointments" class="display text-sm">
                         <thead>
                             <tr>
-                                <th>Date</th>
+                                <th>Appointment Date</th>
                                 <th>Time</th>
                                 <th>Doctor</th>
                                 <th>Reason</th>
                                 <th>Status</th>
+                                <th>Created at</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,6 +90,7 @@ try {
                                             <td>{$row['doctor']}</td>
                                             <td>{$row['reason']}</td>
                                             <td>{$row['appointment_status']}</td>
+                                            <td>{$row['created_at']}</td>
                                         </tr>";
                                 }
                             } else {
