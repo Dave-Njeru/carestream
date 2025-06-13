@@ -1,5 +1,6 @@
 <?php
 $header = "Patient Appointments";
+$view = "appointments";
 
 require_once 'partials/general/head.php';
 require_once 'C:\xampp\htdocs\projects\carestream\public\connection.php';

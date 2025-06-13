@@ -1,5 +1,6 @@
 <?php
 $header = "Patient Dashboard";
+$view = "dashboard";
 
 require 'partials/general/head.php';
 ?>
