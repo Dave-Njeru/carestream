@@ -166,8 +166,9 @@ try {
 
         // Datatable plugin for appointments table
         $(document).ready(function() {
-            //admin dashboard
-            $('#appointments').DataTable({});
+            $('#appointments').DataTable({
+                lengthMenu: [5, 10, 25, 50],
+            });
         });
     </script>
 </body>
